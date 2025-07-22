@@ -12,7 +12,7 @@ int main(){
     printf("Enter cone base's radius : ");
     scanf("%d", &baseRad);
 
-    coneVolume = 0.3333 * pi * (baseRad * baseRad * baseRad) * Height;
+    coneVolume = 0.3333 * pi * (baseRad * baseRad) * Height;
 
     printf("Cone's volume = %.2f\n", coneVolume);
 
