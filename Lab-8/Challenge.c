@@ -1,9 +1,12 @@
 #include <stdio.h>
+/*Declare Func*/
+float averageGrade(int grade[], int studentcount);
+int highestGrade(int grade[], int studentcount);
+int lowestGrade(int grade[], int studentcount);
+void passedStudent(int grade[], char name[][20], int studentcount);
+/*Declare end*/
 
-int averageGrade(int grade[], int count);
-int highestGrade(int grade[], int count);
-int lowestGrade(int grade[], int count);
-
+/*main*/
 int main()
 {
     int studentCount;
@@ -23,33 +26,56 @@ int main()
     }
 
     printf("-----Results-----\n");
-    printf("Average grade : %d\n", averageGrade(grade, studentCount));
+    printf("Average grade : %.2f\n", averageGrade(grade, studentCount));
     printf("Highest grade : %d\n", highestGrade(grade, studentCount));
     printf("Lowest grade : %d\n", lowestGrade(grade, studentCount));
+    printf("\nStudents who passed:\n");
+    passedStudent(grade, name, studentCount);
 }
-
-int averageGrade(int grade[], int count)
+/*----------Func Bellow---------------*/
+float averageGrade(int grade[], int studentcount)
 {
-    int sum = 0;
-    for (int i = 0; i < count; i++)
+    float sum = 0;
+    for (int i = 0; i < studentcount; i++)
+    {
         sum += grade[i];
-    return count ? sum / count : 0;
+    }
+    return sum / studentcount;
 }
 
-int highestGrade(int grade[], int count)
+int highestGrade(int grade[], int studentcount)
 {
     int max = grade[0];
-    for (int i = 1; i < count; i++)
+    for (int i = 1; i < studentcount; i++)
+    {
         if (grade[i] > max)
+        {
             max = grade[i];
+        }
+    }
     return max;
 }
 
-int lowestGrade(int grade[], int count)
+int lowestGrade(int grade[], int studentcount)
 {
     int min = grade[0];
-    for (int i = 1; i < count; i++)
+    for (int i = 1; i < studentcount; i++)
+    {
         if (grade[i] < min)
+        {
             min = grade[i];
+        }
+    }
     return min;
+}
+
+void passedStudent(int grade[], char name[][20], int studentcount)
+{
+    for (int i = 0; i < studentcount; i++)
+    {
+        if (grade[i] >= 60)
+        {
+            printf("%s\n", name[i]);
+        }
+    }
 }

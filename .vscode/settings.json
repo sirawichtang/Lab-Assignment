@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "random": "c",
         "array": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "algorithm": "c"
     }
 }
